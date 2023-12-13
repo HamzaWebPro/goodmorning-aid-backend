@@ -1,4 +1,4 @@
-const Order = require('../models/orderSchema'); // Adjust the path based on your project structure
+const Order = require("../models/orderSchema"); // Adjust the path based on your project structure
 
 const createOrder = async (req, res) => {
   try {
@@ -20,12 +20,11 @@ const createOrder = async (req, res) => {
       !customerAddress ||
       !totalAllProductAmount ||
       !orderedProducts ||
-     
       orderedProducts.length === 0
     ) {
       return res
         .status(400)
-        .json({ error: 'Some required fields are missing.' });
+        .json({ error: "Some required fields are missing." });
     }
 
     // Validate orderedProducts array
@@ -38,12 +37,10 @@ const createOrder = async (req, res) => {
       ) {
         return res.status(400).json({
           error:
-            'Each ordered product should have name, quantity, productImageUrl, and totalAmount defined.',
+            "Each ordered product should have name, quantity, productImageUrl, and totalAmount defined.",
         });
       }
     }
-
-   
 
     // Create the order
     const newOrder = new Order({
@@ -63,10 +60,17 @@ const createOrder = async (req, res) => {
     res.status(201).json(savedOrder);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
+// get all products
+async function allOrders(req, res) {
+  let data = await Order.find({});
+  return res.send(data);
+}
+
 module.exports = {
   createOrder,
+  allOrders,
 };
