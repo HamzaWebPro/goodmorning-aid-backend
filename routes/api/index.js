@@ -1,15 +1,13 @@
-const express = require('express')
-const _ = express.Router()
-const authRoutes = require("./auth.js")
+const express = require("express");
+const _ = express.Router();
+const authRoutes = require("./auth.js");
 
+const productsRoutes = require("./products.js");
+const orderRoutes = require("./order.js");
 
-const productsRoutes = require("./products.js")
+_.use("/auth", authRoutes);
 
+_.use("/products", productsRoutes);
+_.use("/order", orderRoutes);
 
-
-_.use("/auth",authRoutes)
-
-_.use("/products",productsRoutes)
-
-
-module.exports = _ ;
+module.exports = _;
