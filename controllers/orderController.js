@@ -66,7 +66,7 @@ const createOrder = async (req, res) => {
             outsideCity,
           },
           redirect_url: "https://landing-page-beta-topaz.vercel.app",
-          cancel_url: "https://landing-page-beta-topaz.vercel.app",
+          cancel_url: "https://www.facebook.com",
         },
       };
 
