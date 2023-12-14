@@ -65,8 +65,8 @@ const createOrder = async (req, res) => {
             onlinePay,
             outsideCity,
           },
-          redirect_url: "https://landing-page-beta-topaz.vercel.app/",
-          cancel_url: "https://landing-page-beta-topaz.vercel.app/",
+          redirect_url: "https://landing-page-beta-topaz.vercel.app",
+          cancel_url: "https://landing-page-beta-topaz.vercel.app",
         },
       };
 
